@@ -9,6 +9,7 @@ const app = express();
 const server = http.createServer(app);
 const PORT = process.env.PORT || 5000;
 const io = new Server(server);
+app.use(express.json())
 app.use(express.static(path.resolve("./public")))
 
 io.on('connection', (socket)=>{
@@ -16,6 +17,11 @@ io.on('connection', (socket)=>{
         io.emit("message", message)
     })
 })
+app.post('/webhook', (req, res) => {
+    const response = req.body; // Access the body of the incoming request
+    console.log(response); // Log the request body to the console
+    return res.status(200).send('Webhook received'); // Send a response back to the client
+});
 app.get('/api',(req,res) =>{
     return res.status(200).json({message:"hello"})
 })
