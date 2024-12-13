@@ -16,6 +16,9 @@ io.on('connection', (socket)=>{
         io.emit("message", message)
     })
 })
+app.get('/api',(req,res) =>{
+    return res.status(200).json({message:"hello"})
+})
 
 app.get('/',(req,res)=>{
     return res.sendFile('/public/index.html')
