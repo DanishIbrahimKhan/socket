@@ -11,6 +11,9 @@
   const button = document.getElementById('button');
   const messages = document.getElementById('messages')
   const socket = io();
+  socket.on('gitAction',(data)=>{
+    alert(data);
+  })
   socket.on('message',(message)=>{
     const p = document.createElement('p');
     p.innerText = message
