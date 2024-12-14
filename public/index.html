@@ -13,7 +13,7 @@
   const socket = io();
   socket.on('gitAction',(data)=>{
     console.log(data)
-    alert(data);
+    alert("push happen in",data.data.default_branch);
   })
   socket.on('message',(message)=>{
     const p = document.createElement('p');
