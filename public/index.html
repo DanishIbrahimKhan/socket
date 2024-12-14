@@ -12,6 +12,7 @@
   const messages = document.getElementById('messages')
   const socket = io();
   socket.on('gitAction',(data)=>{
+    console.log(data)
     alert(data);
   })
   socket.on('message',(message)=>{
